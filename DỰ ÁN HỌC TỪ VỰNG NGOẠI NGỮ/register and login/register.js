@@ -74,16 +74,31 @@ buttonAdd.addEventListener("click", (e) =>{
         return;
     }
 
-    if(password.value.trim().length < 8){
-        alert("Password bắt buộc phải có 8 kí tự !")
+       
+
+    if (password.value.length < 8) {
+        errorPassword.innerText='Mật khẩu phải có ít nhất 8 ký tự.';
         return;
     }
-    
-    let passwordValidate=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
-    if (!passwordValidate.test(password.value)) {
+
+    let hasLower = false;
+    let hasUpper = false;
+    let hasNumber = false;
+
+    for (let char of password.value) {
+        if (char >= 'a' && char <= 'z') {
+            hasLower = true;
+        } else if (char >= 'A' && char <= 'Z') {
+            hasUpper = true;
+        } else if (char >= '0' && char <= '9') {
+            hasNumber = true;
+        }
+    }
+
+    if (!hasLower || !hasUpper || !hasNumber) {
         errorPassword.innerText= 'Mật khẩu phải chứa in hoa, in thường, kí tự số';
         return;
-    };
+    }
 
     if(confirmPass.value !== password.value ){
         alert("Password và confirmPass phải giống nhau !");
