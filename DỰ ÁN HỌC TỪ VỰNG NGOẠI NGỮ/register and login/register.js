@@ -75,9 +75,8 @@ buttonAdd.addEventListener("click", (e) =>{
     }
 
        
-
     if (password.value.length < 8) {
-        errorPassword.innerText='Mật khẩu phải có ít nhất 8 ký tự.';
+        alert("mật khẩu phải tối thiểu 8 kí tự !")
         return;
     }
 
@@ -96,7 +95,7 @@ buttonAdd.addEventListener("click", (e) =>{
     }
 
     if (!hasLower || !hasUpper || !hasNumber) {
-        errorPassword.innerText= 'Mật khẩu phải chứa in hoa, in thường, kí tự số';
+        alert("Mật khẩu phải chứa in hoa, in thường, kí tự số");
         return;
     }
 
