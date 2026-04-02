@@ -32,8 +32,8 @@ const renderTable = () => {
         <td class="meaning">${item.meaning}</td>
         <td class="category">${item.category}</td>
         <td class="actions">
-          <button onclick="editWord(${item.id})" class="btn-edit">Edit</button>
-          <button onclick="deleteWord(${item.id});" class="btn-delete">Delete</button>
+          <button  class="btn-edit">Edit</button>
+          <button  class="btn-delete" id="Popupdelete">Delete</button>
         </td>
       </tr>
     `;
@@ -52,10 +52,53 @@ renderTable();
     const saveBtn = document.getElementById('saveBtn');
     const modalTitle = document.getElementById('modalTitle');
 
-    // Mở popup khi nhấn Add New Words
+  
     addNewBtn.addEventListener("click", () => {
     
-      modal.style.display = "inline-block";
-      
+      modal.style.display = "flex";
+
+
+    let closeModal =()=> {
+      modal.style.display = 'none';
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    cancelBtn.addEventListener('click', closeModal);
+
+
+    modal.addEventListener('click', (e) => {
+   
+        closeModal();
+      }
+    )
     });
+
+
+  let deleteModal = document.getElementById('deleteModal');
+  let deletePo = document.getElementById("Popupdelete");
+  
+  const confirmBtn = document.getElementById('confirmDeleteBtn');
+
+  deletePo.addEventListener("click", () => {
+     
+    deleteModal.style.display = "flex"
+
+    let closeModal =()=> {
+      deleteModal.style.display = 'none';
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    cancelBtn.addEventListener('click', closeModal);
+
+
+    deleteModal.addEventListener('click', (e) => {
+   
+        closeModal();
+      }
+    )
+
+
+  })
+      
+  
 
