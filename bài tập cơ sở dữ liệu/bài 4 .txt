@@ -1,0 +1,62 @@
+-- 1
+SELECT * 
+FROM Architect
+WHERE fullname = 'le thanh tung';
+
+-- 2
+SELECT name, birthday 
+FROM Worker
+WHERE skill = 'han' OR skill = 'dien';
+
+-- 3
+SELECT name, birthday 
+FROM Worker
+WHERE (skill = 'han' OR skill = 'dien')
+AND birthday > 1948;
+
+-- 4
+SELECT * 
+FROM Worker
+WHERE (birthday + 20) > start_year;
+
+-- 5 (cách 1)
+SELECT * 
+FROM Worker
+WHERE birthday IN (1945, 1940, 1948);
+
+-- 5 (cách 2)
+SELECT * 
+FROM Worker
+WHERE birthday = 1945 
+   OR birthday = 1940 
+   OR birthday = 1948;
+
+-- 6 (cách 1)
+SELECT * 
+FROM Building
+WHERE cost BETWEEN 200 AND 500;
+
+-- 6 (cách 2)
+SELECT * 
+FROM Building
+WHERE cost >= 200 AND cost <= 500;
+
+-- 7
+SELECT * 
+FROM Architect
+WHERE fullname LIKE 'nguyen%';
+
+-- 8
+SELECT * 
+FROM Architect
+WHERE fullname LIKE '% anh %';
+
+-- 9
+SELECT * 
+FROM Architect
+WHERE fullname LIKE 'th_';
+
+-- 10
+SELECT * 
+FROM Contractor
+WHERE phone IS NULL;
